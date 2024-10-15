@@ -1,23 +1,20 @@
 package ies;
 
-import java.util.ArrayList;
 import java.util.List;
-
 import ies.controlador.ControladorCliente;
 import ies.controlador.ControladorPedido;
 import ies.modelo.Cliente;
 import ies.modelo.Ingrediente;
-import ies.modelo.LineaPedido;
 import ies.modelo.PagarTarjeta;
 import ies.modelo.Pasta;
-import ies.modelo.Pedido;
 import ies.modelo.Pizza;
 import ies.modelo.SIZE;
+import ies.utilidades.LectorCSV;
 
 public class Main {
     public static void main(String[] args) throws IllegalAccessException {
 
-        Ingrediente echamas = new Ingrediente(1, "Queso", List.of("Lactosa"));
+        /*Ingrediente echamas = new Ingrediente(1, "Queso", List.of("Lactosa"));
         Ingrediente baseTrigo = new Ingrediente(2, "Base con trigo", List.of("gluten"));
         Ingrediente baseSosa = new Ingrediente(2, "Base sin trigo", List.of());
         Ingrediente tomatico = new Ingrediente(3, "Tomate", List.of("fructosa"));
@@ -31,7 +28,7 @@ public class Main {
         PagarTarjeta pagoTarjeta = new PagarTarjeta();
 
         ControladorCliente controladorCliente = new ControladorCliente(null);
-        ControladorPedido controladorPedido = new ControladorPedido();
+        
         controladorCliente.registrarCliente("00000000Z", "Pepe", "C/aaaaaa", "000000000", "a@g.com", "lala");
         controladorCliente.registrarCliente("00000001X", "Pepa", "C/aaaaaa", "000000001", "b@g.com", "lale");
 
@@ -41,16 +38,19 @@ public class Main {
         controladorCliente.loginCliente("a@g.com", "lala");
         controladorCliente.loginCliente("b@g.com", "lala");
 
-        Pedido pedido1 = new Pedido(1, new ArrayList<LineaPedido>(), controladorCliente.getClienteActual(), null);
+        ControladorPedido controladorPedido = new ControladorPedido(1, controladorCliente.getClienteActual());
         
-        controladorPedido.agregarLineaPedido(pedido1, bolognese, 3, null);
-        controladorPedido.agregarLineaPedido(pedido1, aberrante, 1, SIZE.MEDIANO);
+        controladorPedido.agregarLineaPedido(bolognese, 3, SIZE.GRANDE);
+        controladorPedido.agregarLineaPedido(aberrante, 1, SIZE.MEDIANO);
 
         controladorPedido.finalizarPedido(pagoTarjeta);
         controladorPedido.cancelarPedido();
 
-        controladorPedido.entregarPedido(1);
+        controladorPedido.entregarPedido(1);*/
 
+        List <Cliente> administradores = LectorCSV.leer("admin.txt");
+
+        administradores.forEach(System.out::println);
 
         
     }

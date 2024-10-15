@@ -8,6 +8,8 @@ import ies.modelo.SIZE;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import ies.modelo.Cliente;
 import ies.modelo.EstadoPedido;
 
 
@@ -16,14 +18,13 @@ public class ControladorPedido {
     private Pedido pedidoActual;
     private List<Pedido> listaFinalizados;
 
-    public ControladorPedido() {
-        this.pedidoActual = null;
+    public ControladorPedido(int id, Cliente clienteActual) {
+        pedidoActual = new Pedido(id, clienteActual);
         listaFinalizados = new ArrayList<Pedido>();
     }
 
     //agregarLineaPedido
-    public void agregarLineaPedido(Pedido pedido, Producto producto, int cantidad, SIZE tamaño) throws IllegalAccessException {
-        pedidoActual = pedido;
+    public void agregarLineaPedido(Producto producto, int cantidad, SIZE tamaño) throws IllegalAccessException {
         if (pedidoActual.getCliente() == null) {
             throw new IllegalAccessException("No se puede agregar pedido sin estar logeado.");
         }
@@ -47,7 +48,7 @@ public class ControladorPedido {
             }
             metodo.pagar(pedidoActual.getPrecioTotal());
             pedidoActual.setEstado(EstadoPedido.FINALIZADO);
-            System.out.println("{Pedido finalizado, se entregará en breve. Ya no se pueden realizar cambios o cancelar el pedido");
+            System.out.println("Pedido finalizado, se entregará en breve. Ya no se pueden realizar cambios o cancelar el pedido");
             listaFinalizados.add(pedidoActual);
             pedidoActual.setListaLineaPedidos(null);
         } else {

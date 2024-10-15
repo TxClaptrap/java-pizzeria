@@ -12,6 +12,8 @@ public class Cliente {
     private String email;
     private String password;
     private List<Pedido> listaPedidos;
+
+    private boolean administrador;
     
     public Cliente(String dni, String nombre, String direccion, String telefono, String email, String password) {
         this.dni = dni;
@@ -20,6 +22,17 @@ public class Cliente {
         this.telefono = telefono;
         this.email = email;
         this.password = password;
+        administrador = false;
+    }
+
+    public Cliente(String dni, String nombre, String direccion, String telefono, String email, String password, boolean administrador) {
+        this.dni = dni;
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.email = email;
+        this.password = password;
+        this.administrador = administrador;
     }
 
     public int getId() {
@@ -71,12 +84,16 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "Cliente [id=" + id + ", dni=" + dni + ", nombre=" + nombre + ", direccion=" + direccion + ", telefono="
-                + telefono + ", email=" + email + ", password=" + password + ", listaPedidos=" + listaPedidos + "]";
+        return "Cliente{" +
+                "id=" + id +
+                ", dni='" + dni + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", listaPedidos=" + listaPedidos +
+                ", administrador=" + administrador +
+                '}';
     }
-
-
-    
-
-
 }

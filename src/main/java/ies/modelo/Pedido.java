@@ -1,22 +1,26 @@
 package ies.modelo;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Pedido {
     
     private int id;
-    private LocalDate fecha = LocalDate.now();
+    private LocalDate fecha;
     private List<LineaPedido> listaLineaPedidos; 
-    private double precioTotal = 0;
+    private double precioTotal;
     private Pagable metodoPago;
     private EstadoPedido estado;
 
     private Cliente cliente;
 
-    public Pedido(int id, List<LineaPedido> listaLineaPedidos, Cliente cliente, EstadoPedido estado) {
+    public Pedido(int id, Cliente cliente) {
         this.id = id;
-        this.listaLineaPedidos = listaLineaPedidos;
         this.cliente = cliente;
+        fecha = LocalDate.now();
+        listaLineaPedidos = new ArrayList<>();
+        precioTotal = 0;
+        estado = EstadoPedido.PENDIENTE;
     }
 
     public EstadoPedido getEstado() {
