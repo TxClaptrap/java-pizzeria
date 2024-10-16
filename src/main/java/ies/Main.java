@@ -3,13 +3,13 @@ package ies;
 import java.util.List;
 import ies.controlador.ControladorCliente;
 import ies.controlador.ControladorPedido;
+import ies.herramientas.GestorFicheros;
 import ies.modelo.Cliente;
 import ies.modelo.Ingrediente;
 import ies.modelo.PagarTarjeta;
 import ies.modelo.Pasta;
 import ies.modelo.Pizza;
 import ies.modelo.SIZE;
-import ies.utilidades.LectorCSV;
 
 public class Main {
     public static void main(String[] args) throws IllegalAccessException {
@@ -48,8 +48,7 @@ public class Main {
 
         controladorPedido.entregarPedido(1);*/
 
-        List <Cliente> administradores = LectorCSV.leer("admin.txt");
-
+        List <Cliente> administradores = GestorFicheros.leerArchivo("admin.txt");
         administradores.forEach(System.out::println);
 
         

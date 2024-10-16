@@ -1,4 +1,5 @@
 module ies.thiar {
+    requires java.xml.bind;
     requires javafx.controls;
     requires javafx.fxml;
 
