@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Clientes>
+    <Cliente id="1">
+        <dni>12345678A</dni>
+        <nombre>Juan Pérez</nombre>
+        <direccion>Calle Falsa 123</direccion>
+        <telefono>600121456</telefono>
+        <email>juan@example.com</email>
+        <password>securepass</password>
+        <administrador>true</administrador>
+    </Cliente>
+    <Cliente id="2">
+        <dni>98765432B</dni>
+        <nombre>Ana García</nombre>
+        <direccion>Avenida del Sol 45</direccion>
+        <telefono>650987654</telefono>
+        <email>ana@example.com</email>
+        <password>password123</password>
+        <administrador>true</administrador>
+    </Cliente>
+    <Cliente id="3">
+        <dni>45612378C</dni>
+        <nombre>Carlos López</nombre>
+        <direccion>Plaza Mayor 10</direccion>
+        <telefono>612345678</telefono>
+        <email>carlos@example.com</email>
+        <password>abcde12345</password>
+        <administrador>true</administrador>
+    </Cliente>
+</Clientes>

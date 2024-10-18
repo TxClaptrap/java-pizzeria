@@ -2,12 +2,16 @@ package ies.modelo;
 
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Cliente {
     
+    @XmlAttribute
     private int id;
     private String dni;
     private String nombre;
@@ -15,9 +19,14 @@ public class Cliente {
     private String telefono;
     private String email;
     private String password;
+
+    @XmlTransient
     private List<Pedido> listaPedidos;
 
     private boolean administrador;
+
+    public Cliente() {
+    }
     
     public Cliente(String dni, String nombre, String direccion, String telefono, String email, String password) {
         this.dni = dni;
@@ -40,12 +49,11 @@ public class Cliente {
         this.administrador = administrador;
     }
 
-    @XmlAttribute
+    
     public int getId() {
         return id;
     }
 
-    @XmlElement
     public String getDni() {
         return dni;
     }
@@ -54,7 +62,6 @@ public class Cliente {
         this.dni = dni;
     }
 
-    @XmlElement
     public String getNombre() {
         return nombre;
     }
@@ -63,7 +70,6 @@ public class Cliente {
         this.nombre = nombre;
     }
 
-    @XmlElement
     public String getDireccion() {
         return direccion;
     }
@@ -72,7 +78,6 @@ public class Cliente {
         this.direccion = direccion;
     }
 
-    @XmlElement
     public String getTelefono() {
         return telefono;
     }
@@ -81,7 +86,6 @@ public class Cliente {
         this.telefono = telefono;
     }
 
-    @XmlElement
     public String getEmail() {
         return email;
     }
@@ -90,16 +94,10 @@ public class Cliente {
         this.email = email;
     }
 
-    @XmlElement
     public String getPassword() {
         return password;
     }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    @XmlElement
+    
     public List<Pedido> getListaPedidos() {
         return listaPedidos;
     }
@@ -108,7 +106,10 @@ public class Cliente {
         this.listaPedidos = listaPedidos;
     }
 
-    @XmlElement
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public boolean isAdministrador() {
         return administrador;
     }

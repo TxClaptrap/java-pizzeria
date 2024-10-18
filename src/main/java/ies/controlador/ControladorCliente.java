@@ -2,8 +2,11 @@ package ies.controlador;
 
 import ies.modelo.Cliente;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.xml.bind.JAXBException;
 
 
 
@@ -85,5 +88,12 @@ public class ControladorCliente {
         return false;
     }
 
+    public List<Cliente> leerClientes(String ruta) throws IOException {
+        return GestorFicheros.leerArchivo(ruta);
+    } 
+
+    public boolean exportarClientesXML(List<Cliente> clientes) throws JAXBException {
+        return GestorFicheros.exportarXML(clientes);
+    }
  
 }
