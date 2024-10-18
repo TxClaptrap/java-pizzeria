@@ -1,11 +1,19 @@
 package ies.modelo;
 import java.util.List;
 
+import com.opencsv.bean.CsvBindByName;
+
 public class Ingrediente {
+    @CsvBindByName(column= "ID")
     private int id;
+    @CsvBindByName(column= "NOMBRE")
     private String nombre;
+    @CsvBindByName(column= "ALERGENOS")
     private List<String> alergenos;
-    
+
+    public Ingrediente() {
+    }
+
     public Ingrediente(int id, String nombre, List<String> alergenos) {
         this.id = id;
         this.nombre = nombre;
@@ -31,5 +39,9 @@ public class Ingrediente {
         this.alergenos = alergenos;
     }
 
-    
+    @Override
+    public String toString() {
+        return "Ingrediente [id=" + id + ", nombre=" + nombre + ", alergenos=" + alergenos + "]";
+    }
+
 }

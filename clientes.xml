@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Clientes>
-    <Cliente id="1">
+<clientes>
+    <cliente id="1">
         <dni>12345678A</dni>
         <nombre>Juan Pérez</nombre>
         <direccion>Calle Falsa 123</direccion>
@@ -8,8 +8,8 @@
         <email>juan@example.com</email>
         <password>securepass</password>
         <administrador>true</administrador>
-    </Cliente>
-    <Cliente id="2">
+    </cliente>
+    <cliente id="2">
         <dni>98765432B</dni>
         <nombre>Ana García</nombre>
         <direccion>Avenida del Sol 45</direccion>
@@ -17,8 +17,8 @@
         <email>ana@example.com</email>
         <password>password123</password>
         <administrador>true</administrador>
-    </Cliente>
-    <Cliente id="3">
+    </cliente>
+    <cliente id="3">
         <dni>45612378C</dni>
         <nombre>Carlos López</nombre>
         <direccion>Plaza Mayor 10</direccion>
@@ -26,5 +26,5 @@
         <email>carlos@example.com</email>
         <password>abcde12345</password>
         <administrador>true</administrador>
-    </Cliente>
-</Clientes>
+    </cliente>
+</clientes>

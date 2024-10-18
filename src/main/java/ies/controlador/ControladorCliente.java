@@ -95,5 +95,8 @@ public class ControladorCliente {
     public boolean exportarClientesXML(List<Cliente> clientes) throws JAXBException {
         return GestorFicheros.exportarXML(clientes);
     }
- 
+
+    public List<Cliente> importarClientesXML(String ruta) throws JAXBException {
+        return GestorFicheros.importarXML(ruta);
+    }
 }

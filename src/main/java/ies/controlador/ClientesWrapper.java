@@ -4,16 +4,19 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+
+import ies.modelo.Cliente;
+
 import java.util.List;
 import java.util.ArrayList;
 
-@XmlRootElement(name = "Clientes")
+@XmlRootElement(name = "clientes")
 @XmlAccessorType(XmlAccessType.FIELD)
 
 public class ClientesWrapper {
     
-    @XmlElement(name = "Cliente")
-    private List<Cliente> listaClientes = new ArrayList();
+    @XmlElement(name = "cliente")
+    private List<Cliente> listaClientes = new ArrayList<>();
 
     public ClientesWrapper() {
     }
