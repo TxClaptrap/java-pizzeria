@@ -1,6 +1,7 @@
 package ies.modelo;
 import java.util.List;
 
+import com.opencsv.bean.CsvBindAndSplitByName;
 import com.opencsv.bean.CsvBindByName;
 
 public class Ingrediente {
@@ -8,7 +9,7 @@ public class Ingrediente {
     private int id;
     @CsvBindByName(column= "NOMBRE")
     private String nombre;
-    @CsvBindByName(column= "ALERGENOS")
+    @CsvBindAndSplitByName(column = "ALERGENOS", writeDelimiter = ",", elementType = String.class)
     private List<String> alergenos;
 
     public Ingrediente() {

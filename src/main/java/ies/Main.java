@@ -80,8 +80,8 @@ public class Main {
         
         //Creando lista de ingredientes
         List<Ingrediente> ingredientes = new ArrayList<>() {{
-            add(new Ingrediente(1, "Queso", List.of("lactosa, adictivos")));
-            add(new Ingrediente(2, "Base con trigo", List.of("gluten, sulfitos")));
+            add(new Ingrediente(1, "Queso", List.of("lactosa", "adictivos")));
+            add(new Ingrediente(2, "Base con trigo", List.of("gluten", "sulfitos")));
             add(new Ingrediente(3, "Base sin trigo", List.of()));
             add(new Ingrediente(4, "Tomate", List.of("fructosa")));
             add(new Ingrediente(5, "Jamón York", List.of()));
@@ -97,7 +97,6 @@ public class Main {
         //Probando que importa ingredientes desde CSV
         try {
             controladorProducto.importarIngredientesCSV("ingredientes.csv").forEach(System.out::println);
-
         } catch (Exception e) {
             e.printStackTrace();
         }

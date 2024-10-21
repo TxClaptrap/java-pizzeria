@@ -14,11 +14,13 @@ public class ControladorCliente {
     //clienteActual
     private Cliente clienteActual;
     private List<Cliente> listaClientes;
+    GestorFicheros gestorFicheros;
     
     
     public ControladorCliente(Cliente clienteActual) {
         this.clienteActual = clienteActual;
         this.listaClientes = new ArrayList<Cliente>();
+        gestorFicheros = new GestorFicheros();
     }
 
 
@@ -71,7 +73,6 @@ public class ControladorCliente {
     }
 
     //loginCliente(mail, pass)
-    
     public boolean loginCliente(String email, String password) {
         if (listaClientes != null) {
             for (Cliente cliente : listaClientes) {
@@ -89,14 +90,15 @@ public class ControladorCliente {
     }
 
     public List<Cliente> leerClientes(String ruta) throws IOException {
-        return GestorFicheros.leerArchivo(ruta);
+        return gestorFicheros.leerArchivo(ruta);
     } 
 
     public boolean exportarClientesXML(List<Cliente> clientes) throws JAXBException {
-        return GestorFicheros.exportarXML(clientes);
+
+        return gestorFicheros.exportarXML(clientes);
     }
 
     public List<Cliente> importarClientesXML(String ruta) throws JAXBException {
-        return GestorFicheros.importarXML(ruta);
+        return gestorFicheros.importarXML(ruta);
     }
 }

@@ -12,17 +12,20 @@ import ies.modelo.Producto;
 
 public class ControladorProducto {
     Producto productoActual;
+    GestorFicheros gestorFicheros;
 
     public ControladorProducto(Producto productoActual) {
         this.productoActual = productoActual;
+        gestorFicheros = new GestorFicheros();
     }
 
     public boolean exportarIngredientesCSV(List<Ingrediente> ingredientes)
             throws CsvDataTypeMismatchException, CsvRequiredFieldEmptyException, FileNotFoundException {
-        return GestorFicheros.exportarCSV(ingredientes);
+        return gestorFicheros.exportarCSV(ingredientes);
     }
 
     public List<Ingrediente> importarIngredientesCSV(String ruta) throws FileNotFoundException, IOException {
-        return GestorFicheros.importarCSV(ruta);
+        return gestorFicheros.importarCSV(ruta);
     }
+
 }
