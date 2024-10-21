@@ -16,37 +16,31 @@ public class ControladorCliente {
     private List<Cliente> listaClientes;
     GestorFicheros gestorFicheros;
     
-    
+    public ControladorCliente() {
+        gestorFicheros = new GestorFicheros();
+    }
+
     public ControladorCliente(Cliente clienteActual) {
         this.clienteActual = clienteActual;
         this.listaClientes = new ArrayList<Cliente>();
         gestorFicheros = new GestorFicheros();
     }
 
-
-
     public Cliente getClienteActual() {
         return clienteActual;
     }
-
-
 
     public void setClienteActual(Cliente clienteActual) {
         this.clienteActual = clienteActual;
     }
 
-
-
     public List<Cliente> getListaClientes() {
         return listaClientes;
     }
 
-
-
     public void setListaClientes(List<Cliente> listaClientes) {
         this.listaClientes = listaClientes;
     }
-
 
     //registrarCliente()
     public void registrarCliente(String dni, String nombre, String direccion, String telefono, String email, String password) {

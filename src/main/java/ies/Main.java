@@ -31,8 +31,8 @@ public class Main {
         PagarTarjeta pagoTarjeta = new PagarTarjeta();*/
 
         //Creando controladores necesarios
-        ControladorCliente controladorCliente = new ControladorCliente(null);
-        ControladorProducto controladorProducto = new ControladorProducto(null);
+        ControladorCliente controladorCliente = new ControladorCliente();
+        ControladorProducto controladorProducto = new ControladorProducto();
         
         /*controladorCliente.registrarCliente("00000000Z", "Pepe", "C/aaaaaa", "000000000", "a@g.com", "lala");
         controladorCliente.registrarCliente("00000001X", "Pepa", "C/aaaaaa", "000000001", "b@g.com", "lale");

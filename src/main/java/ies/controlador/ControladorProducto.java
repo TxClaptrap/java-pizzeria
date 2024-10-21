@@ -8,14 +8,11 @@ import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 
 import ies.modelo.Ingrediente;
-import ies.modelo.Producto;
 
 public class ControladorProducto {
-    Producto productoActual;
     GestorFicheros gestorFicheros;
 
-    public ControladorProducto(Producto productoActual) {
-        this.productoActual = productoActual;
+    public ControladorProducto() {
         gestorFicheros = new GestorFicheros();
     }
 
