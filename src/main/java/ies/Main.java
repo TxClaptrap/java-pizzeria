@@ -56,7 +56,7 @@ public class Main {
         //Probando que lee el archivo .txt
         List<Cliente> administradores;
         try {
-            administradores = controladorCliente.leerClientes("admin.txt");
+            administradores = controladorCliente.leerClientes();
             administradores.forEach(System.out::println);
         } catch (IOException e) {
             administradores = new ArrayList<>();
@@ -72,7 +72,7 @@ public class Main {
 
         //Probando que importa clientes desde XML
         try {
-            controladorCliente.importarClientesXML("clientes.xml").forEach(System.out::println);
+            controladorCliente.importarClientesXML().forEach(System.out::println);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -96,7 +96,7 @@ public class Main {
         
         //Probando que importa ingredientes desde CSV
         try {
-            controladorProducto.importarIngredientesCSV("ingredientes.csv").forEach(System.out::println);
+            controladorProducto.importarIngredientesCSV().forEach(System.out::println);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -26,10 +26,14 @@ import ies.modelo.Cliente;
 import ies.modelo.Ingrediente;
 
 public class GestorFicheros {
+    //Se determinan las constantes de ruta por el uso de "buenas prácticas de programación"
+    private final String rutaTXT = "admin.txt";
+    private final String rutaXML = "clientes.xml";
+    private final String rutaCSV = "ingredientes.csv";
 
     // Lector a pelo
-    public List<Cliente> leerArchivo(String ruta) throws IOException {
-        try (Stream<String> lineas = Files.lines(Path.of(ruta))) {
+    public List<Cliente> leerArchivo() throws IOException {
+        try (Stream<String> lineas = Files.lines(Path.of(rutaTXT))) {
             return lineas.map(linea -> {
                 List<String> cosas = List.of(linea.split("[,;|]"));
                 cosas = cosas.stream().map(String::trim).toList();
@@ -47,22 +51,22 @@ public class GestorFicheros {
         JAXBContext context = JAXBContext.newInstance(Cliente.class, ClientesWrapper.class);
         Marshaller marshaller = context.createMarshaller();
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-        marshaller.marshal(wrap, new File("clientes.xml"));
+        marshaller.marshal(wrap, new File(rutaXML));
         return true;
     }
 
     // XML a lista de clientes
-    public List<Cliente> importarXML(String ruta) throws JAXBException {
+    public List<Cliente> importarXML() throws JAXBException {
         JAXBContext context = JAXBContext.newInstance(ClientesWrapper.class);
         Unmarshaller unmarshaller = context.createUnmarshaller();
-        ClientesWrapper wrap = (ClientesWrapper) unmarshaller.unmarshal(new File(ruta));
+        ClientesWrapper wrap = (ClientesWrapper) unmarshaller.unmarshal(new File(rutaXML));
         return wrap.getListaClientes();
     }
 
     //Lista de ingredientes a CSV
     public boolean exportarCSV(List<Ingrediente> ingredientes)
             throws FileNotFoundException, CsvDataTypeMismatchException, CsvRequiredFieldEmptyException {
-        File archivoCSV = new File("ingredientes.csv");
+        File archivoCSV = new File(rutaCSV);
 
         try (PrintWriter pw = new PrintWriter(archivoCSV)) {
             StatefulBeanToCsv<Ingrediente> beanToCsv = new StatefulBeanToCsvBuilder<Ingrediente>(pw).withSeparator(';').build();
@@ -72,8 +76,8 @@ public class GestorFicheros {
         }
     }
 
-    public List<Ingrediente> importarCSV(String ruta) throws FileNotFoundException, IOException {
-        try (FileReader fr = new FileReader("ingredientes.csv")) {
+    public List<Ingrediente> importarCSV() throws FileNotFoundException, IOException {
+        try (FileReader fr = new FileReader(rutaCSV)) {
             CsvToBean<Ingrediente> csvToBean = new CsvToBeanBuilder<Ingrediente>(fr)
                     .withType(Ingrediente.class)
                     .withSeparator(';') // Especifica el delimitador como punto y coma, si no, no lo pilla, ya que es "," por defecto.

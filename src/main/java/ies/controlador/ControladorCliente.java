@@ -83,8 +83,9 @@ public class ControladorCliente {
         return false;
     }
 
-    public List<Cliente> leerClientes(String ruta) throws IOException {
-        return gestorFicheros.leerArchivo(ruta);
+    //Métodos de encapsulado, para no hacerlo todo desde GestorFicheros
+    public List<Cliente> leerClientes() throws IOException {
+        return gestorFicheros.leerArchivo();
     } 
 
     public boolean exportarClientesXML(List<Cliente> clientes) throws JAXBException {
@@ -92,7 +93,7 @@ public class ControladorCliente {
         return gestorFicheros.exportarXML(clientes);
     }
 
-    public List<Cliente> importarClientesXML(String ruta) throws JAXBException {
-        return gestorFicheros.importarXML(ruta);
+    public List<Cliente> importarClientesXML() throws JAXBException {
+        return gestorFicheros.importarXML();
     }
 }

@@ -16,13 +16,14 @@ public class ControladorProducto {
         gestorFicheros = new GestorFicheros();
     }
 
+    //Métodos de encapsulado, para no hacerlo todo desde GestorFicheros
     public boolean exportarIngredientesCSV(List<Ingrediente> ingredientes)
             throws CsvDataTypeMismatchException, CsvRequiredFieldEmptyException, FileNotFoundException {
         return gestorFicheros.exportarCSV(ingredientes);
     }
 
-    public List<Ingrediente> importarIngredientesCSV(String ruta) throws FileNotFoundException, IOException {
-        return gestorFicheros.importarCSV(ruta);
+    public List<Ingrediente> importarIngredientesCSV() throws FileNotFoundException, IOException {
+        return gestorFicheros.importarCSV();
     }
 
 }
