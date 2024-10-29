@@ -85,7 +85,7 @@ public class ControladorCliente {
 
     //Métodos de encapsulado, para no hacerlo todo desde GestorFicheros
     public List<Cliente> leerClientes() throws IOException {
-        return gestorFicheros.leerArchivo();
+        return gestorFicheros.leerAdministradores();
     } 
 
     public boolean exportarClientesXML(List<Cliente> clientes) throws JAXBException {

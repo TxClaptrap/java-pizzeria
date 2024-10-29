@@ -32,15 +32,15 @@ public class GestorFicheros {
     private final String rutaCSV = "ingredientes.csv";
 
     // Lector a pelo
-    public List<Cliente> leerArchivo() throws IOException {
+    public List<Cliente> leerAdministradores() throws IOException {
         try (Stream<String> lineas = Files.lines(Path.of(rutaTXT))) {
             return lineas.map(linea -> {
-                List<String> cosas = List.of(linea.split("[,;|]"));
-                cosas = cosas.stream().map(String::trim).toList();
+                List<String> administradores = List.of(linea.split("[,;|]"));
+                administradores = administradores.stream().map(String::trim).toList();
 
-                return new Cliente(Integer.parseInt(cosas.get(0)), cosas.get(1), cosas.get(2), cosas.get(3),
-                        cosas.get(4),
-                        cosas.get(5), cosas.get(6), true);
+                return new Cliente(Integer.parseInt(administradores.get(0)), administradores.get(1), administradores.get(2), administradores.get(3),
+                        administradores.get(4),
+                        administradores.get(5), administradores.get(6), true);
             }).toList();
         }
     }
