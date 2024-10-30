@@ -8,8 +8,6 @@ import java.util.List;
 
 import javax.xml.bind.JAXBException;
 
-
-
 public class ControladorCliente {
     //clienteActual
     private Cliente clienteActual;
