@@ -2,7 +2,7 @@ package ies.controlador;
 import com.opencsv.bean.AbstractBeanField;
 import java.util.Arrays;
 import java.util.List;
-
+//No hace falta porque está el @CsvBindAndSplitByName
 public class ListConverter extends AbstractBeanField<List<String>, String> {
     @Override
     protected List<String> convert(String value) {

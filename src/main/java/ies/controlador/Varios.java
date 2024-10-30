@@ -45,8 +45,7 @@ public class Varios {
         }
     }
 
-    // Sin librería (el fichero no tiene encabezado, tampoco impide exportar con
-    // separadores admitidos en la importación, pero esto no había que hacerlo)
+    // Exportar a pelo
     public boolean exportarAdministradoresTXT(List<Cliente> clientes) throws IOException {
         Files.write(Path.of(rutaTXT),
                 clientes.stream().map(cliente -> clienteToString(cliente, ",")).toList());
